@@ -1,6 +1,15 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
-bin
-obj
+[Bb]in
+[Oo]bj
 
 # mstest test results
 TestResults
+
+# NuGet
+[Pp]ackages
+
+# ReSharper
+_ReSharper*
+
+# VS
+*.suo
