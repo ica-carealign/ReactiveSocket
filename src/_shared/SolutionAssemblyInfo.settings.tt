@@ -1,0 +1,5 @@
+﻿<#+
+public int Major = 0;
+public int Minor = 0;
+public int Patch = 0;
+#>
