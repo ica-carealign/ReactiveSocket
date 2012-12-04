@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Comment CommentText="TcpClient and UdpClient are disparate enough that a third, common interface will be needed that can generally describe actions that are valid for both types.">
+    <Position X="0.5" Y="0.5" Height="1.125" Width="2.033" />
+  </Comment>
+  <Comment CommentText="Implementations of the common interface will wrap instances of TcpClient and UdpClient.">
+    <Position X="2.708" Y="1.014" Height="0.889" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The TcpClient wrapper will need to encapsulate actions taken directly on the client, as well as actions taken on the NetworkStream object that it exposes.">
+    <Position X="1.146" Y="2.104" Height="1.167" Width="2.075" />
+  </Comment>
+  <Comment CommentText="Common properties: Active, Available, Client">
+    <Position X="2.59" Y="3.431" Height="0.556" Width="1.565" />
+  </Comment>
+  <Comment CommentText="Common methods: Close, Connect, Dispose, Receive / Read, Send / Write">
+    <Position X="1.354" Y="4.104" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Additional functionality desired: all methods should have async &quot;flavors&quot; that return Task objects.">
+    <Position X="2.208" Y="5.021" Height="0.833" Width="1.96" />
+  </Comment>
+  <Class Name="System.Net.Sockets.TcpClient">
+    <Position X="4.75" Y="0.5" Width="6.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Sockets.UdpClient">
+    <Position X="11.5" Y="0.5" Width="7.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Sockets.NetworkStream">
+    <Position X="3.5" Y="7.75" Width="6" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
