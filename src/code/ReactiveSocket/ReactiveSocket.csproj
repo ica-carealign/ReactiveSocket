@@ -56,6 +56,10 @@
     <Compile Include="..\..\_shared\SolutionAssemblyInfo.cs">
       <Link>Properties\SolutionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Framework\DnsWrapper.cs" />
+    <Compile Include="Framework\EndPointResolver.cs" />
+    <Compile Include="Framework\IDnsWrapper.cs" />
+    <Compile Include="Framework\IEndPointResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,3 +13,4 @@ _ReSharper*
 
 # VS
 *.suo
+*.user
