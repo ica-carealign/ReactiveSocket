@@ -19,21 +19,21 @@ namespace ReactiveSocket.Specifications.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("End Point Resolution")]
-    public partial class EndPointResolutionFeature
+    [NUnit.Framework.DescriptionAttribute("Socket Factory")]
+    public partial class SocketFactoryFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "EndPointResolution.feature"
+#line 1 "SocketFactory.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "End Point Resolution", "As a ReactiveSocket API consumer\r\nI want to be able to resolve IP end points\r\nSo " +
-                    "that I can be sure to use meaningful end point entries", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Socket Factory", "As a ReactiveSocket API consumer\r\nI want to be able to create new Socket instance" +
+                    "s as easily as possible\r\nSo that I can worry about other things", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,28 +66,24 @@ namespace ReactiveSocket.Specifications.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Resolve Local End Point")]
-        public virtual void ResolveLocalEndPoint()
+        [NUnit.Framework.DescriptionAttribute("Listener Sockets")]
+        [NUnit.Framework.TestCaseAttribute("Tcp", "InterNetwork", "Stream", null)]
+        [NUnit.Framework.TestCaseAttribute("Udp", "InterNetwork", "Dgram", null)]
+        public virtual void ListenerSockets(string protocol, string addressFamily, string socketType, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve Local End Point", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Listener Sockets", exampleTags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.And("the DNS Wrapper is configured to return anywhere.com as the host name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
- testRunner.And("the DNS Wrapper is configured to return a valid host entry with an address of 127" +
-                    ".0.0.1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("I have a socket factory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.And("I have an End Point Resolver using the mocked DNS Wrapper", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("I ask for a listener socket with the {0} protocol", protocol), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.When("I ask the End Point Resolver for a local end point at port 5000, using Dns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then(string.Format("the listener socket I got back should have a protocol of {0}", protocol), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.Then("the DNS wrapper should have been asked for the host name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("the listener socket I got back should have an address family of {0}", addressFamily), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.And("the DNS wrapper should have been asked for a host entry corresponding with the ho" +
-                    "st name anywhere.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
- testRunner.And("the resolved end point should have an address of 127.0.0.1:5000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("the listener socket I got back should have a socket type of {0}", socketType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

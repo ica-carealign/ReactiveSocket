@@ -2,8 +2,14 @@
 
 namespace ReactiveSocket.Framework
 {
-    public interface IEndPointResolver
-    {
-        IPEndPoint ResolveLocalEndPoint(int portNumber);
-    }
+	public interface IEndPointResolver
+	{
+		IPEndPoint ResolveLocal();
+
+		IPEndPoint ResolveLocal(int portNumber);
+
+		IPEndPoint ResolveLocal(int portNumber, bool useDns);
+
+		IPEndPoint ResolveLocal(int portNumber, bool useDns, bool useIpV4);
+	}
 }

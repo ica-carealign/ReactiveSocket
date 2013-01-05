@@ -2,10 +2,10 @@
 
 namespace ReactiveSocket.Framework
 {
-    public interface IDnsWrapper
-    {
-        string GetHostName();
+	public interface IDnsWrapper
+	{
+		string GetHostName();
 
-        IPHostEntry GetHostEntry(string hostNameOrAddress);
-    }
+		IPHostEntry GetHostEntry(string hostNameOrAddress);
+	}
 }
