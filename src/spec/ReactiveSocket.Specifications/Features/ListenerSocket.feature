@@ -27,7 +27,7 @@ Scenario: Listen using mocked socket and mocked end point
 # that actual network socket allocations will occur as a part of this scenario.
 
 # Note: Using a default port number of zero (shown to occur in the above Scenario) should cause
-# the actual port assignment to fall within the range of 49152 to 65535, as recommended by
+# the actual port assignment, as recommended by
 # the IETF for private and/or dynamic ports.
 # Source: http://www.ietf.org/assignments/port-numbers
 
@@ -35,4 +35,4 @@ Scenario: Listen using mocked socket and mocked end point
 Scenario: Listen on new TCP port
 	Given I have created a real Tcp Listener Socket
 	When I tell the Listener Socket to start listening
-	Then the Listener Socket should have a port number between 49152 and 65535
+	Then the Listener Socket should have been assigned a valid port number

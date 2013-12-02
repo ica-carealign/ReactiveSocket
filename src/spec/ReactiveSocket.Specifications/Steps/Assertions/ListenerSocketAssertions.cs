@@ -17,7 +17,7 @@ namespace ReactiveSocket.Specifications.Steps.Assertions
 		[Then(@"the listener socket I got back should have a protocol of (.*)")]
 		public void ProtocolType(string protocol)
 		{
-			var protocolType = (ProtocolType)Enum.Parse(typeof(ProtocolType), protocol);
+			var protocolType = (ProtocolType) Enum.Parse(typeof (ProtocolType), protocol);
 			var listenerSocket = Retrieve<IListenerSocket>();
 			listenerSocket.Socket.ProtocolType.Should().Be(protocolType);
 		}
@@ -25,7 +25,7 @@ namespace ReactiveSocket.Specifications.Steps.Assertions
 		[Then(@"the listener socket I got back should have an address family of (.*)")]
 		public void AddressFamily(string family)
 		{
-			var addressFamily = (AddressFamily)Enum.Parse(typeof(AddressFamily), family);
+			var addressFamily = (AddressFamily) Enum.Parse(typeof (AddressFamily), family);
 			var listenerSocket = Retrieve<IListenerSocket>();
 			listenerSocket.Socket.AddressFamily.Should().Be(addressFamily);
 		}
@@ -33,18 +33,18 @@ namespace ReactiveSocket.Specifications.Steps.Assertions
 		[Then(@"the listener socket I got back should have a socket type of (.*)")]
 		public void SocketType(string type)
 		{
-			var socketType = (SocketType)Enum.Parse(typeof(SocketType), type);
+			var socketType = (SocketType) Enum.Parse(typeof (SocketType), type);
 			var listenerSocket = Retrieve<IListenerSocket>();
 			listenerSocket.Socket.SocketType.Should().Be(socketType);
 		}
 
-		[Then(@"the Listener Socket should have a port number between (.*) and (.*)")]
-		public void PortNumber(int min, int max)
+		[Then(@"the Listener Socket should have been assigned a valid port number")]
+		public void ThenTheListenerSocketShouldHaveBeenAssignedAPortNumber()
 		{
 			var listenerSocket = Retrieve<IListenerSocket>();
 			var endPoint = listenerSocket.Socket.LocalEndPoint as IPEndPoint;
 			endPoint.Should().NotBeNull();
-			endPoint.Port.Should().BeInRange(min, max);
+			endPoint.Port.Should().BeInRange(1, 65535);
 			ScenarioContext.Current.WriteDebug("Assigned port number was {0}", endPoint.Port);
 		}
 	}
